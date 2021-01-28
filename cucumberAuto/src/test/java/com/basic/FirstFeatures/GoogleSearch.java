@@ -52,8 +52,10 @@ WebDriver driver;
 		 String searchTextActual = driver.findElement(By.name("q")).getAttribute("value");
 		 assertEquals("Lebron James", searchTextActual);
 		 System.out.println("\nSearch text: " + searchTextActual + " is Found!\n");
+		 TimeUnit.SECONDS.sleep(1);
 		 
-		 //TimeUnit.SECONDS.sleep(1);		
+		 driver.findElement(By.xpath("//*[@id=\"hdtb-msb-vis\"]/div[3]/a")).click();
+		 System.out.println("\nSuccessfully clicked Images\n");
 	}
 	
 	/*
