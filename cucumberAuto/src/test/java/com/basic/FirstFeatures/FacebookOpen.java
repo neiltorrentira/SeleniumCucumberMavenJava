@@ -36,14 +36,14 @@ public class FacebookOpen {
 	}
 	
 	
-	@And("^User enters ([^\"]*\"[^\"]*\") first name$")
+	@And("^User enters \"([^\"]*)\" first name$")
 	public void user_enter_firstname(String searchString1) throws InterruptedException {
 
 		 TimeUnit.SECONDS.sleep(1);
 		 driver.findElement(By.name("firstname")).sendKeys(searchString1);
 	}
 	
-	@And("^User enters Firstname ([^\"]*\"[^\"]*\") and lastname ([^\"]*\"[^\"]*\")$")
+	@And("^User enters Firstname \"([^\"]*)\" and lastname \"([^\"]*)\"$")
 	public void user_enter_firstname_lastname(String searchString1, String searchString2) throws InterruptedException {
 
 		 TimeUnit.SECONDS.sleep(1);
@@ -52,7 +52,7 @@ public class FacebookOpen {
 	}
 	
 	
-	@Then("^User validate Firstname ([^\"]*\"[^\"]*\")$")
+	@Then("^User validate Firstname \"([^\"]*)\"$")
 	public void user_validate_firstname(String searchString1) throws InterruptedException {
 
 		 TimeUnit.SECONDS.sleep(1);
@@ -61,7 +61,7 @@ public class FacebookOpen {
 		 System.out.println("\nSearch text: " + searchTextActual1 + " is Found!\n");
 	}
 	
-	@Then("^User validate Firstname ([^\"]*\"[^\"]*\") and lastname ([^\"]*\"[^\"]*\")$")
+	@Then("^User validate Firstname \"([^\"]*)\" and lastname \"([^\"]*)\"$")
 	public void user_validate_firstname_lastname(String searchString1, String searchString2) throws InterruptedException {
 
 		 TimeUnit.SECONDS.sleep(1);

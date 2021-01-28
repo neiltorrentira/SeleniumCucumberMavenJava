@@ -28,7 +28,7 @@ WebDriver driver;
 		driver.get("https://www.google.com");			
 	}
 	
-	@When("^User enter ([^\"]*\"[^\"]*\") search text$")
+	@When("^User enter \"([^\"]*)\" search text$")
 	public void user_enter_search_text(String searchString) throws InterruptedException {
 		// Print a Log In message to the screen
 		 System.out.println("\nSuccessfully opened the website www.google.com\n");
@@ -37,7 +37,7 @@ WebDriver driver;
 		 driver.findElement(By.name("q")).sendKeys(Keys.ENTER);		 
 	}
 	
-	@Then("^User validate ([^\"]*\"[^\"]*\") search text is present$")
+	@Then("^User validate \"([^\"]*)\" search text is present$")
 	public void user_validate_search_text_is_present(String searchString) throws InterruptedException {
 		//Wait for 5 Sec
 		 TimeUnit.SECONDS.sleep(1);
