@@ -5,5 +5,6 @@ Feature: Browse Google
 
 Scenario: Open, Search Google scenario
     Given Open Google
-    When User enter search text
-    Then User validate search text is present
+    When User enter "Lebron James" search text
+    Then User validate "Lebron James" search text is present
+    Then User Close Browser

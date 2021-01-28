@@ -1,18 +1,12 @@
 package com.basic.FirstFeatures;
 
 import com.basic.SharedClass.WebDriverClass;
-
 //import org.junit.Assert.*;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
-
 import static org.junit.Assert.assertEquals;
-
 import java.util.concurrent.TimeUnit;
-
-//import com.aventstack.extentreports.util.Assert;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -34,23 +28,23 @@ WebDriver driver;
 		driver.get("https://www.google.com");			
 	}
 	
-	@When("^User enter search text$")
-	public void user_enter_search_text() throws InterruptedException {
+	@When("^User enter ([^\"]*\"[^\"]*\") search text$")
+	public void user_enter_search_text(String searchString) throws InterruptedException {
 		// Print a Log In message to the screen
 		 System.out.println("\nSuccessfully opened the website www.google.com\n");
 		 TimeUnit.SECONDS.sleep(1);
-		 driver.findElement(By.name("q")).sendKeys("Lebron James");
+		 driver.findElement(By.name("q")).sendKeys(searchString);
 		 driver.findElement(By.name("q")).sendKeys(Keys.ENTER);		 
 	}
 	
-	@Then("^User validate search text is present$")
-	public void user_validate_search_text_is_present() throws InterruptedException {
+	@Then("^User validate ([^\"]*\"[^\"]*\") search text is present$")
+	public void user_validate_search_text_is_present(String searchString) throws InterruptedException {
 		//Wait for 5 Sec
 		 TimeUnit.SECONDS.sleep(1);
 		 //Thread.sleep(3000);
 
 		 String searchTextActual = driver.findElement(By.name("q")).getAttribute("value");
-		 assertEquals("Lebron James", searchTextActual);
+		 assertEquals(searchString, searchTextActual);
 		 System.out.println("\nSearch text: " + searchTextActual + " is Found!\n");
 		 TimeUnit.SECONDS.sleep(1);
 		 
@@ -58,10 +52,12 @@ WebDriver driver;
 		 System.out.println("\nSuccessfully clicked Images\n");
 	}
 	
-	/*
-	 * public void CloseBrowser() throws InterruptedException {
-	 * //TimeUnit.SECONDS.sleep(1); // Close the driver driver.close(); driver =
-	 * null; }
-	 */
+	@Then("^User Close Browser$")
+	public void CloseBrowser() throws InterruptedException {
+		TimeUnit.SECONDS.sleep(1); 
+		// Close the driver 
+		driver.close(); driver = null; 
+	}
+	 
 	
 }
