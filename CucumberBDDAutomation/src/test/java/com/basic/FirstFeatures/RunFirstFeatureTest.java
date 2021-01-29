@@ -21,7 +21,7 @@ import io.cucumber.junit.CucumberOptions;
                             //"com.vimalselvam.cucumber.listener.ExtentCucumberFormatter:target/ExtentReport-FirstFeature.html"
                             }) 
 
-public class RunFirstFeature {
+public class RunFirstFeatureTest {
 	/*
 	 * @AfterClass public static void writeExtentReport() {
 	 * Reporter.loadXMLConfig(new File("config/report.xml")); }
