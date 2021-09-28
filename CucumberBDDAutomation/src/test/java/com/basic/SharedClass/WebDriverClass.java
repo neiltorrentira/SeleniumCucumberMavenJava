@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.BeforeStep;
+
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 //import org.openqa.selenium.chrome.ChromeDriver;
 //import org.openqa.selenium.firefox.FirefoxDriver;
@@ -19,7 +21,9 @@ public class WebDriverClass {
 	@BeforeStep
 	public WebDriver Setup() throws InterruptedException {
 		if(driver==null) {
-			System.setProperty("webdriver.chrome.driver", "D:\\seleniumBrowsers\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", 
+					Objects.requireNonNull(WebDriver.class.getClassLoader()
+                            .getResource("/cucumberAuto/src/test/resources/webDriver/chromedriver.exe")).getPath());
 			driver = new ChromeDriver();
 			//Applied wait time
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
