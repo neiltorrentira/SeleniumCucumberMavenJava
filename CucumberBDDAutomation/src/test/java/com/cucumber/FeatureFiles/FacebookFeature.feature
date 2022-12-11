@@ -8,12 +8,12 @@ Background: Common steps
 
 Scenario: Enter Firstname at Facebook scenario
     When User click Create New Account
-    And User enters "Jesse" first name
-    Then User validate Firstname "Jesse"
+#    And User enters "Jesse" first name
+#    Then User validate Firstname "Jesse"
     Then User Closes Browser
     
 Scenario: Validate create user multiple fields at Facebook
     When User click Create New Account
-    And User enters Firstname "Walter" and lastname "White"
-    Then User validate Firstname "Walter" and lastname "White"
+#    And User enters Firstname "Walter" and lastname "White"
+#    Then User validate Firstname "Walter" and lastname "White"
     Then User Closes Browser
